@@ -1,0 +1,33 @@
+func countAndSay(n int) string {
+	s := "1"
+	a := []string{}
+	cs := ""
+	for n > 1 {
+		b := 0
+		for i, c := range s {
+			a = append(a, string(c))
+			if len(s)-1 <= i {
+				if i == 0 || a[i] == a[i-1] {
+					b++
+					cs = cs + strconv.Itoa(b) + a[i]
+				} else {
+					cs = cs + strconv.Itoa(b) + a[i-1] + "1" + a[i]
+				}
+				s = cs
+				cs = ""
+				break
+			}
+			if i == 0 {
+				b++
+			} else if a[i-1] == string(c) {
+				b++
+			} else {
+				cs = cs + strconv.Itoa(b) + a[i-1]
+				b = 1
+			}
+		}
+		a = []string{}
+		n--
+	}
+	return s
+}
