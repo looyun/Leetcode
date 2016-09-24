@@ -1,0 +1,21 @@
+func countBits(num int) []int {
+    s:=[]int{}
+    for i:=0;i<num+1;i++{
+        s=append(s,count1(i))
+    }
+    return s
+}
+
+func count1(num int) int{
+    i:=0
+    if num==0{
+        return 0
+    }
+    for num/2!=0{
+        if num%2==1{
+            i++
+        }
+        num=num/2
+    }
+    return i+1
+}
