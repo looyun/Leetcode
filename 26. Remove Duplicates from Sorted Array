@@ -1,0 +1,15 @@
+func removeDuplicates(nums []int) int {
+    n:=len(nums)
+    for i:=1;i<len(nums);i++{
+        if nums[i]==nums[i-1]{
+            if i==len(nums)-1{
+                n--
+            }else{
+                nums=append(nums[:i],nums[i+1:]...)
+                n--
+                i--
+            }
+        }
+    }
+    return n
+}
